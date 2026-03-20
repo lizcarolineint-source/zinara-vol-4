@@ -684,98 +684,71 @@ h3 {
   align-items: center;
 }
 
-/* ── SERVICES CARD GRID (homepage) ───────────────────────────
-   Mirrors the process-grid layout: 3 columns × 2 rows
+/* ── SERVICES STEPS (homepage) ───────────────────────────────
+   Same structure as .process-grid — no boxes, no borders,
+   no backgrounds between items. 3 columns × 2 rows.
    ─────────────────────────────────────────────────────────── */
 
-.svc-card-grid {
+.svc-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  margin-top: 3rem;
+  gap: 4rem 3rem;
+  margin-top: 3.5rem;
 }
 
-.svc-card {
-  background: var(--white);
-  padding: 2.25rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: background .18s;
-  position: relative;
-}
-.svc-card:hover { background: #F5F6FC; }
+.svc-step { position: relative; }
 
-/* Navy bg for featured AI card */
-.svc-card.svc-card-featured {
-  background: var(--navy);
-}
-.svc-card.svc-card-featured:hover { background: #000535; }
-
-.svc-card-num {
+.svc-step-num {
   width: 42px; height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--fh);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 1.4rem;
-  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  /* Default — regular services */
+  background: var(--cloud);
   border: 1.5px solid var(--border);
   color: var(--navy);
-  background: var(--cloud);
-}
-.svc-card.svc-card-featured .svc-card-num {
-  border-color: rgba(239,191,4,.3);
-  color: var(--gold);
-  background: rgba(239,191,4,.08);
 }
 
-.svc-card-name {
+/* AI & Automation — gold circle */
+.svc-step.svc-step-featured .svc-step-num {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.svc-step-name {
   font-family: var(--fh);
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.25;
-  margin-bottom: .65rem;
   letter-spacing: -.01em;
+  margin-bottom: .6rem;
 }
-.svc-card.svc-card-featured .svc-card-name { color: var(--white); }
 
-.svc-card-desc {
+.svc-step-desc {
   font-size: 1rem;
   font-weight: 300;
   color: var(--ink-2);
   line-height: 1.72;
-  flex: 1;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.1rem;
 }
-.svc-card.svc-card-featured .svc-card-desc { color: rgba(230,233,242,.62); }
 
-.svc-card-tag {
+.svc-step-tag {
   display: inline-block;
-  font-size: .68rem;
+  font-size: .66rem;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--gold-d);
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--cloud);
-  align-self: flex-start;
-}
-.svc-card.svc-card-featured .svc-card-tag {
-  color: var(--gold);
-  border-color: rgba(239,191,4,.25);
-  background: rgba(239,191,4,.08);
 }
 
 /* ── PROCESS STEPS ────────────────────────────────────────── */
@@ -1208,7 +1181,7 @@ footer {
   .hero-stat:last-child { grid-column: span 2; border-right: none; padding-left: 0; border-top: 1px solid rgba(239,191,4,.1); padding-top: 1.5rem; }
   .problem-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .section-head-split { grid-template-columns: 1fr; gap: 1.5rem; }
-  .svc-card-grid { grid-template-columns: 1fr 1fr; }
+  .svc-steps { grid-template-columns: 1fr 1fr; gap: 3rem 2rem; }
   .svc-grid { grid-template-columns: 1fr; }
   .svc-cell.featured { grid-column: span 1; }
   .svc-cell-featured-inner { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -1240,7 +1213,7 @@ footer {
   .hero-stats { grid-template-columns: 1fr; }
   .hero-stat { border-right: none; padding: 1.25rem 0 0; border-top: 1px solid rgba(239,191,4,.1); }
   .hero-stat:first-child { border-top: none; padding-top: 0; }
-  .svc-card-grid { grid-template-columns: 1fr; }
+  .svc-steps { grid-template-columns: 1fr; gap: 2.5rem; }
   .process-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
